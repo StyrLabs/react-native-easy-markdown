@@ -141,23 +141,17 @@ class Markdown extends Component {
     }
 
     renderText(node, key, extras) {
-        console.log('renderText');
-
         const { styles } = this.state;
 
         let style = (extras && extras.style) ? [styles.text].concat(extras.style) : styles.text;
 
         if (node.props) {
-            console.log('renderText node.props');
-
             return (
                 <Text key={key} style={style}>
                     {this.renderNodes(node.props.children, key, extras)}
                 </Text>
             );
         } else {
-            console.log('renderText other');
-
             return (
                 <Text key={key} style={style}>{node}</Text>
             );
